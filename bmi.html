@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator | Veer The Muscle Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.png">
+      <span>VEER THE MUSCLE ACADEMY</span>
+    </div>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="machines.html">Machines</a>
+      <a href="bmi.html">BMI</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <h2>BMI Calculator</h2>
+
+  <div class="bmi-box">
+    <input type="number" id="age" placeholder="Age">
+    <select id="gender">
+      <option value="">Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+    <input type="number" id="height" placeholder="Height (cm)">
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <button onclick="calcBMI()">Calculate BMI</button>
+    <p id="result"></p>
+  </div>
+</section>
+
+<script>
+function calcBMI(){
+  let h = document.getElementById("height").value / 100;
+  let w = document.getElementById("weight").value;
+  let bmi = (w / (h*h)).toFixed(1);
+
+  let msg = "Your BMI is " + bmi + " - ";
+
+  if(bmi < 18.5) msg += "Underweight";
+  else if(bmi < 25) msg += "Normal";
+  else if(bmi < 30) msg += "Overweight";
+  else msg += "Obese";
+
+  document.getElementById("result").innerText = msg;
+}
+</script>
+
+<footer>
+  Know your body. Train smarter.
+</footer>
+
+</body>
+</html>
